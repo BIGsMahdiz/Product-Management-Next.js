@@ -1,0 +1,98 @@
+.container {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container h2 {
+  font-weight: 700;
+  font-size: 31px;
+  margin-top: 62px;
+}
+
+.container section {
+  margin-top: 130px;
+  background-color: white;
+  width: 460px;
+  min-height: 500px;
+  border-radius: 40px;
+  border: 1px solid #e4e4e4;
+}
+
+.formBox {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.formBox img {
+  width: 80px;
+  height: 84.47px;
+  margin: 20px 0;
+}
+
+.formBox h3 {
+  font-size: 500;
+  font-size: 24px;
+  line-height: 37.5px;
+  margin-bottom: 60px;
+}
+
+.formBox input {
+  width: 400px;
+  height: 53px;
+  border-radius: 15px;
+  padding: 22px;
+  background-color: #f2f2f2;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+.formBox p {
+  margin-top: 7px;
+  margin-bottom: 18px;
+  color: orangered;
+  height: 5px;
+}
+
+.formBox button {
+  width: 400px;
+  height: 53px;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: #55a3f0;
+  color: white;
+  border: 0;
+  font-size: 1.2rem;
+  margin-bottom: 7px;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+
+.formBox button:hover {
+  background-color: #3b93f1;
+}
+
+.container a {
+  margin-right: 25px;
+  color: #3a8bed;
+  line-height: 25px;
+}
+
+@media screen and (max-width: 487px) {
+  .container section {
+    width: 350px;
+  }
+
+  .formBox input {
+    width: 300px;
+  }
+
+  .formBox button {
+    width: 300px;
+  }
+}
