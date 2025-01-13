@@ -8,6 +8,7 @@ import { loginInputs } from "@/constants/inputs";
 import styles from "@/styles/LoginPage.module.css";
 import { useLogin } from "@/services/mutations";
 import { useRouter } from "next/router";
+import { setCookie } from "@/utils/cookies";
 
 function LoginPage() {
   const { mutate } = useLogin();
@@ -28,6 +29,7 @@ function LoginPage() {
       onSuccess: (data) => {
         console.log(data);
         router.push("/dashboard");
+        setCookie(data?.token);
       },
       onError: (data) => {
         console.log(data);
