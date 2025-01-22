@@ -6,14 +6,18 @@ import AddItemModal from "./AddItemModal";
 
 import stlyes from "@/styles/Table.module.css";
 import EditItemModal from "./EditItemModal";
+import DeleteItemModal from "./DeleteItemModal";
 
 function Table({ data }) {
   const router = useRouter();
 
   const [displayed, setDisplayed] = useState();
+  const [editStage, setEditStage] = useState([]);
+  const [deleteId, setDeleteId] = useState("");
+
   const [addModalStatus, setAddModalStatus] = useState(false);
   const [editModalStatus, setEditModalStatus] = useState(false);
-  const [editStage, setEditStage] = useState([]);
+  const [deleteModalStatus, setDeleteModalStatus] = useState(false);
 
   useEffect(() => {
     setDisplayed(data?.data);
@@ -33,6 +37,11 @@ function Table({ data }) {
   const editStageHandler = (item) => {
     setEditModalStatus(true);
     setEditStage(item);
+  };
+
+  const deleteStageHandler = (id) => {
+    setDeleteModalStatus(true);
+    setDeleteId(id);
   };
 
   return (
@@ -67,7 +76,11 @@ function Table({ data }) {
                   alt="Edit"
                   onClick={() => editStageHandler(item)}
                 />
-                <img src="/images/trash.png" alt="Delete" />
+                <img
+                  src="/images/trash.png"
+                  alt="Delete"
+                  onClick={() => deleteStageHandler(item.id)}
+                />
               </td>
             </tr>
           ))}
@@ -81,10 +94,15 @@ function Table({ data }) {
       ) : null}
       {editModalStatus ? (
         <EditItemModal
-          editModalStatus={editModalStatus}
           setEditModalStatus={setEditModalStatus}
           editStage={editStage}
           setEditStage={setEditStage}
+        />
+      ) : null}
+      {deleteModalStatus ? (
+        <DeleteItemModal
+          setDeleteModalStatus={setDeleteModalStatus}
+          deleteId={deleteId}
         />
       ) : null}
     </div>

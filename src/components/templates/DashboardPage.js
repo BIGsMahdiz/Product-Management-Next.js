@@ -6,7 +6,7 @@ import styles from "@/styles/Dashboard.module.css";
 
 function DashboardPage() {
   const { data } = useGetAllProducts();
-  console.log("dashboard", data);
+
   return (
     <div className={styles.container}>
       <SearchBar />
