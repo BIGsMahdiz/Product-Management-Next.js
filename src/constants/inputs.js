@@ -14,4 +14,22 @@ const loginInputs = [
   { id: 2, type: "password", name: "password", placeholder: "رمزعبور" },
 ];
 
-export { registerInputs, loginInputs };
+const AddItemModalInputs = [
+  {
+    id: 1,
+    type: "text",
+    name: "name",
+    placeholder: "نام کالا ",
+    lable: "نام کالا ",
+  },
+  {
+    id: 2,
+    type: "number",
+    name: "quantity",
+    placeholder: "تعداد",
+    lable: "تعداد موجودی",
+  },
+  { id: 3, type: "number", name: "price", placeholder: "قیمت", lable: "قیمت" },
+];
+
+export { registerInputs, loginInputs, AddItemModalInputs };

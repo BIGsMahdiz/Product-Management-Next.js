@@ -1,5 +1,6 @@
-import { getCookie } from "@/utils/cookies";
 import axios from "axios";
+
+import { getCookie } from "@/utils/cookies";
 
 const api = axios.create({
   // baseURL: process.env.BASE_URL,
@@ -30,4 +31,5 @@ api.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
 export default api;
