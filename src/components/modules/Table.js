@@ -5,12 +5,15 @@ import { sp } from "@/utils/replaceNumber";
 import AddItemModal from "./AddItemModal";
 
 import stlyes from "@/styles/Table.module.css";
+import EditItemModal from "./EditItemModal";
 
 function Table({ data }) {
   const router = useRouter();
 
   const [displayed, setDisplayed] = useState();
   const [addModalStatus, setAddModalStatus] = useState(false);
+  const [editModalStatus, setEditModalStatus] = useState(false);
+  const [editStage, setEditStage] = useState([]);
 
   useEffect(() => {
     setDisplayed(data?.data);
@@ -26,6 +29,11 @@ function Table({ data }) {
     });
     setDisplayed(sreachedData);
   }, [router.query]);
+
+  const editStageHandler = (item) => {
+    setEditModalStatus(true);
+    setEditStage(item);
+  };
 
   return (
     <div className={stlyes.container}>
@@ -54,7 +62,11 @@ function Table({ data }) {
               <td>{sp(item.price)}</td>
               <td>{item.id}</td>
               <td className={stlyes.actions}>
-                <img src="/images/edit.png" alt="Edit" />
+                <img
+                  src="/images/edit.png"
+                  alt="Edit"
+                  onClick={() => editStageHandler(item)}
+                />
                 <img src="/images/trash.png" alt="Delete" />
               </td>
             </tr>
@@ -65,6 +77,14 @@ function Table({ data }) {
         <AddItemModal
           addModalStatus={addModalStatus}
           setAddModalStatus={setAddModalStatus}
+        />
+      ) : null}
+      {editModalStatus ? (
+        <EditItemModal
+          editModalStatus={editModalStatus}
+          setEditModalStatus={setEditModalStatus}
+          editStage={editStage}
+          setEditStage={setEditStage}
         />
       ) : null}
     </div>

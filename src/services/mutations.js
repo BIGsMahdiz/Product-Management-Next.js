@@ -17,4 +17,9 @@ const useAddProduct = () => {
   return useMutation({ mutationFn });
 };
 
-export { useRegister, useLogin, useAddProduct };
+const useEditProduct = () => {
+  const mutationFn = (data) => api.put(`/products/${data.id}`, data);
+  return useMutation({ mutationFn });
+};
+
+export { useRegister, useLogin, useAddProduct, useEditProduct };
