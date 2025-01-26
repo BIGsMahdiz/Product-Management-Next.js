@@ -10,7 +10,6 @@ function SearchBar() {
   useEffect(() => {
     if (search.length > 0) {
       router.push({ query: `search=${search}` });
-      console.log(router);
     } else {
       delete router.query.search;
       router.push("/dashboard");

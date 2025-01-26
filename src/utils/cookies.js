@@ -4,6 +4,6 @@ const setCookie = (token) => {
   document.cookie = `token=${token};expires=${oneMonth};path=/`;
 };
 
-const getCookie = () => document.cookie.split("=")[1] || null;
+const getCookie = () => document.cookie.split("token=")[1] || null;
 
 export { setCookie, getCookie };

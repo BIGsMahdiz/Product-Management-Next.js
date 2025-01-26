@@ -53,39 +53,41 @@ function Table({ data }) {
         </div>
         <button onClick={() => setAddModalStatus(true)}>افزودن محصول</button>
       </div>
-      <table>
-        <thead>
-          <tr>
-            <th>نام کالا</th>
-            <th>موجودی</th>
-            <th>قیمت</th>
-            <th>شناسه کالا</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {displayed?.map((item) => (
-            <tr key={item.id}>
-              <td>{item.name}</td>
-              <td>{sp(item.quantity)}</td>
-              <td>{sp(item.price)}</td>
-              <td>{item.id}</td>
-              <td className={stlyes.actions}>
-                <img
-                  src="/images/edit.png"
-                  alt="Edit"
-                  onClick={() => editStageHandler(item)}
-                />
-                <img
-                  src="/images/trash.png"
-                  alt="Delete"
-                  onClick={() => deleteStageHandler(item.id)}
-                />
-              </td>
+      <div className={stlyes.tableParent}>
+        <table>
+          <thead>
+            <tr>
+              <th>نام کالا</th>
+              <th>موجودی</th>
+              <th>قیمت</th>
+              <th>شناسه کالا</th>
+              <th></th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {displayed?.map((item) => (
+              <tr key={item.id}>
+                <td>{item.name}</td>
+                <td>{sp(item.quantity)}</td>
+                <td>{sp(item.price)} هزار تومان</td>
+                <td>{item.id}</td>
+                <td className={stlyes.actions}>
+                  <img
+                    src="/images/edit.png"
+                    alt="Edit"
+                    onClick={() => editStageHandler(item)}
+                  />
+                  <img
+                    src="/images/trash.png"
+                    alt="Delete"
+                    onClick={() => deleteStageHandler(item.id)}
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       {addModalStatus ? (
         <AddItemModal
           addModalStatus={addModalStatus}

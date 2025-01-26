@@ -1,4 +1,5 @@
 import ReactQueryProvider from "@/providers/ReactQueryProvider";
+import Layout from "@/components/layouts/Layout";
 
 import "@/styles/globals.css";
 
@@ -6,7 +7,9 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <ReactQueryProvider>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ReactQueryProvider>
     </>
   );
