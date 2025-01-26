@@ -4,6 +4,7 @@ import { useAddProduct } from "@/services/mutations";
 import styles from "@/styles/AddItemModal.module.css";
 import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 function AddItemModal({ addModalStatus, setAddModalStatus }) {
   const [form, setForm] = useState({
@@ -29,8 +30,10 @@ function AddItemModal({ addModalStatus, setAddModalStatus }) {
 
     mutate(form, {
       onSuccess: (data) => {
+        toast.success(`محصول ${data.name} با موفقیت اضافه شد!`);
         console.log(data);
         queryClient.invalidateQueries({ queryKey: ["getAllProducts"] });
+        setAddModalStatus(false);
       },
       onError: (data) => {
         console.log(data);

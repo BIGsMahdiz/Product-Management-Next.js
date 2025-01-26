@@ -3,6 +3,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useDeleteProduct } from "@/services/mutations";
 
 import styles from "@/styles/DeleteItemModal.module.css";
+import toast from "react-hot-toast";
 
 function DeleteItemModal({ setDeleteModalStatus, deleteId }) {
   const queryClient = useQueryClient();
@@ -14,7 +15,9 @@ function DeleteItemModal({ setDeleteModalStatus, deleteId }) {
 
     mutate(deleteId, {
       onSuccess: (data) => {
-        console.log(data);
+        toast(`محصول با موفقیت حذف شد`, {
+          icon: "🗑️",
+        });
         queryClient.invalidateQueries({ queryKey: ["getAllProducts"] });
         setDeleteModalStatus(false);
       },

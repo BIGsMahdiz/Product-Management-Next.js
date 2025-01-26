@@ -8,9 +8,10 @@ import { registerInputs } from "@/constants/inputs";
 import styles from "@/styles/RegisterPage.module.css";
 import { useRegister } from "@/services/mutations";
 import { useRouter } from "next/router";
+import toast, { Toaster } from "react-hot-toast";
 
 function RegisterPage() {
-  const { mutate } = useRegister();
+  const { mutate, isPending } = useRegister();
   const router = useRouter();
 
   const {
@@ -28,10 +29,12 @@ function RegisterPage() {
       { username: data.username, password: data.password },
       {
         onSuccess: (data) => {
+          toast.success("شما با موفقیت ثبت نام کردید!");
           console.log(data);
           router.push("/login");
         },
         onError: (data) => {
+          toast.error("لطفا از نام یا رمزورود جدید استفاده نمایید!");
           console.log(data);
         },
       }
@@ -39,6 +42,7 @@ function RegisterPage() {
   };
   return (
     <div className={styles.container}>
+      <Toaster />
       <h2>بوت کمپ بوتواستارت</h2>
 
       <section>
@@ -57,7 +61,9 @@ function RegisterPage() {
                 <p>{errors[input.name]?.message}</p>
               </div>
             ))}
-            <button type="submit">ثبت نام</button>
+            <button type="submit" disabled={isPending}>
+              ثبت نام
+            </button>
           </form>
         </div>
         <Link href={"/login"}>حساب کاربری دارید؟</Link>

@@ -4,6 +4,7 @@ import { useEditProduct } from "@/services/mutations";
 import styles from "@/styles/AddItemModal.module.css";
 import { useQueryClient } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 function EditItemModal({ setEditModalStatus, editStage, setEditStage }) {
   const [form, setForm] = useState({
@@ -33,6 +34,7 @@ function EditItemModal({ setEditModalStatus, editStage, setEditStage }) {
 
     mutate(form, {
       onSuccess: (data) => {
+        toast.success(`محصول ${data.name} با موفقیت تغییر یافت!`);
         console.log(data);
         queryClient.invalidateQueries({ queryKey: ["getAllProducts"] });
         setEditStage([]);

@@ -9,9 +9,10 @@ import styles from "@/styles/LoginPage.module.css";
 import { useLogin } from "@/services/mutations";
 import { useRouter } from "next/router";
 import { setCookie } from "@/utils/cookies";
+import toast, { Toaster } from "react-hot-toast";
 
 function LoginPage() {
-  const { mutate } = useLogin();
+  const { mutate, isPending } = useLogin();
   const router = useRouter();
 
   const {
@@ -27,7 +28,7 @@ function LoginPage() {
 
     mutate(data, {
       onSuccess: (data) => {
-        console.log(data);
+        toast.success("شما با موفقیت وارد شدید!");
         router.push("/dashboard");
         setCookie(data?.token);
       },
@@ -38,6 +39,7 @@ function LoginPage() {
   };
   return (
     <div className={styles.container}>
+      <Toaster />
       <h2>بوت کمپ بوتواستارت</h2>
 
       <section>
@@ -56,7 +58,9 @@ function LoginPage() {
                 <p>{errors[input.name]?.message}</p>
               </div>
             ))}
-            <button type="submit">ورود</button>
+            <button type="submit" disabled={isPending}>
+              ورود
+            </button>
           </form>
         </div>
         <Link href={"/register"}>حساب کاربری ندارید؟</Link>
