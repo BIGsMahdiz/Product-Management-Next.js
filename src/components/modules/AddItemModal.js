@@ -6,7 +6,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-function AddItemModal({ addModalStatus, setAddModalStatus }) {
+function AddItemModal({ setAddModalStatus }) {
   const [form, setForm] = useState({
     name: "",
     price: 0,

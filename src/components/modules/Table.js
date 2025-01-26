@@ -89,10 +89,7 @@ function Table({ data }) {
         </table>
       </div>
       {addModalStatus ? (
-        <AddItemModal
-          addModalStatus={addModalStatus}
-          setAddModalStatus={setAddModalStatus}
-        />
+        <AddItemModal setAddModalStatus={setAddModalStatus} />
       ) : null}
       {editModalStatus ? (
         <EditItemModal

@@ -1,9 +1,8 @@
 .container {
   position: absolute;
-  top: 19%;
-  right: 38%;
-  /* background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(15px); */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .subContainer {
@@ -55,4 +54,18 @@
 
 .actions button:last-child:hover {
   background-color: gainsboro;
+}
+
+@media screen and (max-width: 505px) {
+  .subContainer {
+    width: 340px;
+  }
+
+  .subContainer input {
+    width: 310px;
+  }
+
+  .subContainer button {
+    width: 120px;
+  }
 }
