@@ -32,7 +32,7 @@ function AddItemModal({ setAddModalStatus }) {
       onSuccess: (data) => {
         toast.success(`محصول ${data.name} با موفقیت اضافه شد!`);
         console.log(data);
-        queryClient.invalidateQueries({ queryKey: ["getAllProducts"] });
+        queryClient.invalidateQueries({ queryKey: ["getAllProductsDashboard"] });
         setAddModalStatus(false);
       },
       onError: (data) => {

@@ -1,0 +1,15 @@
+.container {
+  max-width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+
+@media screen and (max-width:643px) {
+  .container {
+    justify-content: center;
+  }
+}

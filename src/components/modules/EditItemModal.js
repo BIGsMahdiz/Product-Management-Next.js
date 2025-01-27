@@ -36,7 +36,9 @@ function EditItemModal({ setEditModalStatus, editStage, setEditStage }) {
       onSuccess: (data) => {
         toast.success(`محصول ${data.name} با موفقیت تغییر یافت!`);
         console.log(data);
-        queryClient.invalidateQueries({ queryKey: ["getAllProducts"] });
+        queryClient.invalidateQueries({
+          queryKey: ["getAllProductsDashboard"],
+        });
         setEditStage([]);
         setForm({
           id: "",

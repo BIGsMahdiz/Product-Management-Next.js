@@ -13,7 +13,6 @@ function Layout({ children }) {
   useEffect(() => {
     const token = getCookie();
     setCsrToken(token);
-    console.log("csrToken: ", csrToken);
   }, [router.pathname]);
 
   return (

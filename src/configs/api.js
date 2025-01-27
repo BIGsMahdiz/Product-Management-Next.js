@@ -10,10 +10,12 @@ const api = axios.create({
 
 api.interceptors.request.use(
   (request) => {
-    const token = getCookie();
+    if (typeof window !== undefined) {
+      const token = getCookie();
 
-    if (token) {
-      request.headers["Authorization"] = `bearer ${token}`;
+      if (token) {
+        request.headers["Authorization"] = `bearer ${token}`;
+      }
     }
 
     return request;

@@ -18,7 +18,7 @@ function DeleteItemModal({ setDeleteModalStatus, deleteId }) {
         toast(`محصول با موفقیت حذف شد`, {
           icon: "🗑️",
         });
-        queryClient.invalidateQueries({ queryKey: ["getAllProducts"] });
+        queryClient.invalidateQueries({ queryKey: ["getAllProductsDashboard"] });
         setDeleteModalStatus(false);
       },
       onError: (data) => {
