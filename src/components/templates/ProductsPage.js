@@ -3,8 +3,6 @@ import Card from "../modules/Card";
 import styles from "@/styles/ProductsPage.module.css";
 
 function ProductsPage({ data, images }) {
-  console.log(data);
-
   const imagesData = images.slice(0, data?.data?.length);
 
   return (

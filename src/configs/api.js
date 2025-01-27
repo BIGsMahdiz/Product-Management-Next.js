@@ -3,8 +3,7 @@ import axios from "axios";
 import { getCookie } from "@/utils/cookies";
 
 const api = axios.create({
-  // baseURL: process.env.BASE_URL,
-  baseURL: "http://localhost:3001",
+  baseURL: process.env.BASE_URL || "http://localhost:3001",
   headers: { "Content-Type": "application/json" },
 });
 
