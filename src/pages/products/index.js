@@ -14,7 +14,7 @@ export async function getStaticProps() {
   const res = await fetch("http://localhost:3001/products");
   const data = await res.json();
 
-  const res2 = await fetch("https://picsum.photos/v2/list");
+  const res2 = await fetch("https://picsum.photos/v2/list?page=2&limit=100");
   const images = await res2.json();
 
   return {

@@ -43,7 +43,6 @@ function RegisterPage() {
   return (
     <div className={styles.container}>
       <Toaster />
-      <h2>بوت کمپ بوتواستارت</h2>
 
       <section>
         <div className={styles.formBox}>

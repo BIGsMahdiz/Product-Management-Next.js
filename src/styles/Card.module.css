@@ -6,9 +6,15 @@
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
+.imgParent {
+  width: 300px;
+  height: 250px;
+}
+
 .card img {
   border-radius: 15px;
   width: 300px;
+  height: 250px;
 }
 
 .card h3 {

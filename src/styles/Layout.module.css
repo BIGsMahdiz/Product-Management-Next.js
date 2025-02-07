@@ -46,17 +46,9 @@
   padding: 8px;
   color: white;
   font-size: 1.1rem;
-  margin-top: 20px;
 }
 
 .footer a {
   color: #0081a7;
   padding: 0 4px;
 }
-
-/* @media screen and (max-width: 465px) {
-  .right {
-    display: block;
-    width: 100%;
-  }
-} */

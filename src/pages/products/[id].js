@@ -1,10 +1,12 @@
-function ProductsDetails({ data }) {
+import DetailsPage from "@/components/templates/DetailsPage";
+
+function ProductsDetails({ data, images }) {
+  const randomImage = Math.floor(Math.random() * 100);
+  const oneImage = images.slice(randomImage - 1, randomImage);
+
   return (
-    <div style={{ maxWidth: "1000px", margin: "auto" }}>
-      <p>{data.id}</p>
-      <p>{data.name}</p>
-      <p>{data.price}</p>
-      <p>{data.quantity}</p>
+    <div>
+      <DetailsPage data={{ data, oneImage }} />
     </div>
   );
 }
@@ -30,6 +32,9 @@ export async function getStaticProps(context) {
   const res = await fetch(`http://localhost:3001/products/${params.id}`);
   const data = await res.json();
 
+  const res2 = await fetch("https://picsum.photos/v2/list?page=2&limit=100");
+  const images = await res2.json();
+
   if (!data.name) {
     return {
       notFound: true,
@@ -37,7 +42,7 @@ export async function getStaticProps(context) {
   }
 
   return {
-    props: { data },
+    props: { data, images },
     revalidate: +process.env.REVALIDATE,
   };
 }

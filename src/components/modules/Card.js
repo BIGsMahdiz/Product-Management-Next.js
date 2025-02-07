@@ -7,7 +7,9 @@ function Card({ id, name, price, quantity, image }) {
 
   return (
     <div className={styles.card}>
-      <img src={image.download_url} alt="" />
+      <div className={styles.imgParent}>
+      <img src={image?.download_url} alt="" />
+      </div>
       <h3>{name}</h3>
       <div className={styles.info}>
         <div>
