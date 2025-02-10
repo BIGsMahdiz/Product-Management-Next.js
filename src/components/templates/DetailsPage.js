@@ -3,7 +3,7 @@ import { sp } from "@/utils/replaceNumber";
 
 function DetailsPage({ data }) {
   const { name, price, quantity, id } = data?.data;
-  
+
   return (
     <div className={styles.container}>
       <section>

@@ -32,7 +32,7 @@ function SearchBar() {
         />
       </div>
       <div className={styles.profile}>
-        <img src="/images/eyes.gif" alt="Profile" />
+        <img src="/images/m2.jpg" alt="Profile" />
         <div>
           <h4>مهدی موسوی نژاد</h4>
           <p>مدیر</p>

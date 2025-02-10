@@ -52,7 +52,7 @@ function Layout({ children }) {
       <footer className={styles.footer}>
         <p>
           Developed by
-          <a href="https://github.com/BIGsMahdiz" target="_blank">
+          <a href="https://github.com/Mahdimousavinezhad" target="_blank">
             Mahdi Mousavinezhad
           </a>
           | Product Management &copy; 2025
